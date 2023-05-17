@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import { useMainContext } from "../context/MainContext";
 
 const ListBlock = styled.div`
   width: 100%;
@@ -30,6 +31,9 @@ const ItemHolder = styled.div`
     font-size: 14px;
     font-weight: bold;
     color: #4d4d4d;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
 `;
 const ErrorBlock = styled.div`
@@ -44,9 +48,9 @@ const ImageHolder = styled.div`
   height: 70px;
   border-radius: 4px;
   overflow: hidden;
-  background: #f1f1f1;
+  background: #fff;
   > img {
-    width: 100%;
+    height: 100%;
     position: absolute;
     top: -50%;
     left: -50%;
@@ -56,33 +60,35 @@ const ImageHolder = styled.div`
   }
 `;
 
-export default function EventsList({}: // data,
-// error,
-{
-  // data: any[] | null;
-  // error: string | null;
+export default function EventsList({
+  data,
+  error,
+}: {
+  data: any[] | null;
+  error: string | null;
 }): JSX.Element | null {
-  // if (error) {
-  //   return <ErrorBlock>{error}</ErrorBlock>;
-  // }
-  // if (!data) {
-  //   return null;
-  // }
-  // if (data?.length === 0 && !error) {
-  //   return <NoResults>There are no results matching your search</NoResults>;
-  // }
+  const { setDetailsModalData } = useMainContext();
+  if (error) {
+    return <ErrorBlock>{error}</ErrorBlock>;
+  }
+  if (!data) {
+    return null;
+  }
+  if (data?.length === 0 && !error) {
+    return <NoResults>There are no results matching your search</NoResults>;
+  }
   return (
     <ListBlock>
-      {/* {data.map((item: any) => {
+      {data.map((item: any) => {
         return (
-          <ItemHolder key={item.id}>
+          <ItemHolder key={item.id} onClick={() => setDetailsModalData(item)}>
             <ImageHolder>
-              <img src={img} alt="item_img" />
+              <img src={item.coinlogo} alt="item_img" />
             </ImageHolder>
-            <p>{name}</p>
+            <p>{item.description}</p>
           </ItemHolder>
         );
-      })} */}
+      })}
     </ListBlock>
   );
 }

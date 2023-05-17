@@ -12,6 +12,6 @@ code {
     monospace;
 }
 
-div, input {
+div, input, section {
   box-sizing: border-box;
 }

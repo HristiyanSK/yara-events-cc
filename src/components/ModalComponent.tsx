@@ -33,15 +33,56 @@ const ModalHeader = styled.div`
     border: none;
   }
 `;
+const ModalContent = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  padding: 12px 16px;
+`;
+const ImageHolder = styled.div`
+  width: 100%;
+  position: relative;
+  height: 100px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f1f1f1;
+  > img {
+    height: 100%;
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    margin: auto auto;
+  }
+`;
 
-export default function ModalComp({ children }: { children: any }) {
+export default function ModalComp({
+  detailData,
+}: {
+  detailData: any;
+}): JSX.Element | null {
+  if (!detailData) {
+    return null;
+  }
+
   return (
     <ModalHolder>
       <ModalHeader>
         <h2>Modal Title</h2>
-        <button type="button"></button>
+        <button type="button">
+          <span>+</span>
+        </button>
       </ModalHeader>
-      {children}
+      <ModalContent>
+        <ImageHolder>
+          <img />
+        </ImageHolder>
+        <p>Test</p>
+        <p>Test</p>
+        <p>Test</p>
+        <p>Test</p>
+      </ModalContent>
     </ModalHolder>
   );
 }
