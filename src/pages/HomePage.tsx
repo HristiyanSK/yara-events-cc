@@ -2,9 +2,17 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import SearchBar from "../components/SearchBar";
 import EventsList from "../components/EventsList";
-import { BlockTitle } from "../components/CommonStyledElements";
+import { BlockTitle, StyledLink } from "../components/CommonStyledElements";
 import { useMainContext } from "../context/MainContext";
-import ModalComp from "../components/ModalComponent";
+import ModalComp from "../components/DetailModalComponent";
+import { styled } from "styled-components";
+
+const LinksHolder = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  margin-bottom: 12px;
+`;
 
 export default function HomePage(): JSX.Element {
   const mockdata = [
@@ -227,6 +235,10 @@ export default function HomePage(): JSX.Element {
   return (
     <>
       <BlockTitle>Events list</BlockTitle>
+      <LinksHolder>
+        <StyledLink to="/my_created_events">To created events ›</StyledLink>
+        <StyledLink to="/wish_list">To wish list ›</StyledLink>
+      </LinksHolder>
       <SearchBar />
       <EventsList data={data} error={error} />
       {detailsModalData ? <ModalComp detailData={detailsModalData} /> : null}

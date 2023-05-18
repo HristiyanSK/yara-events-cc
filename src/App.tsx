@@ -1,8 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import WishList from "./pages/WishList";
-import EventDetails from "./pages/EventDetails";
-import MyEvents from "./pages/MyEvents";
+import MyCreatedEvents from "./pages/MyCreatedEvents";
 import { styled } from "styled-components";
 import MainContextProvider from "./context/MainContext";
 
@@ -23,8 +22,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/wish_list" element={<WishList />} />
-            <Route path="/my_events" element={<MyEvents />} />
-            <Route path="/event/:eventid" element={<EventDetails />} />
+            <Route path="/my_created_events" element={<MyCreatedEvents />} />
           </Routes>
         </MainHolder>
       </MainContextProvider>
