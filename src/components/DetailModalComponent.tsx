@@ -1,5 +1,7 @@
-import { styled } from "styled-components";
+import styled from "styled-components";
 import { useMainContext } from "../context/MainContext";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ModalHolder = styled.div`
   position: fixed;
@@ -13,7 +15,7 @@ const ModalHolder = styled.div`
 const Wrapper = styled.div`
   background: #fff;
   margin: 40px auto;
-  max-width: 500px;
+  max-width: 400px;
   border-radius: 8px;
   box-shadow: 0px 10px 30px 10px rgba(0, 0, 0, 0.1);
 `;
@@ -79,6 +81,18 @@ const ContentBlock = styled.div`
     font-size: 14px;
   }
 `;
+const AddWishListButton = styled.button`
+  cursor: pointer;
+  margin-top: 30px;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #ec5757;
+  border: 1px solid #cc4343;
+  &:hover {
+    background: #cc4343;
+  }
+`;
 
 export default function DetailModalComp({
   detailData,
@@ -95,35 +109,48 @@ export default function DetailModalComp({
     <ModalHolder>
       <Wrapper>
         <ModalHeader>
-          <h2>Modal Title</h2>
+          <h2>Event details</h2>
           <button onClick={() => setDetailsModalData(null)} type="button">
             <span>+</span>
           </button>
         </ModalHeader>
         <ModalContent>
           <ImageHolder>
-            <img alt="detail_img" />
+            <img alt="detail_img" src={detailData.image.url} />
           </ImageHolder>
           <ContentBlock>
             <p>
-              <b>Event name:</b> Test
+              <b>Event name:</b> {detailData.name}
             </p>
             <p>
-              <b>Location:</b> Test
+              <b>Summary:</b> {detailData.summary}
             </p>
             <p>
-              <b>Date and time:</b> Test
+              <b>Date and time:</b> {detailData.start_date}{" "}
+              {detailData.start_time}
             </p>
             <p>
-              <b>Test</b>
+              <b>Location: </b>
+              {detailData.primary_venue.address.localized_area_display}
             </p>
-            <button
-              onClick={() => setWishListItems([...wishListItems, detailData])}
+            <p>
+              <b>Ticket availability: </b>
+              {detailData.ticket_availability.maximum_ticket_price.display}
+            </p>
+            <AddWishListButton
+              type="button"
+              onClick={() => {
+                setWishListItems([...wishListItems, detailData]);
+                toast.success("Successfully added to wish list!", {
+                  position: toast.POSITION.BOTTOM_CENTER,
+                });
+              }}
             >
-              Add to wish list
-            </button>
+              ♥ Add to wish list
+            </AddWishListButton>
           </ContentBlock>
         </ModalContent>
+        <ToastContainer />
       </Wrapper>
     </ModalHolder>
   );
