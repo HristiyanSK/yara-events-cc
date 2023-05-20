@@ -17,6 +17,8 @@ export interface MyContextType {
   error: string | null;
   detailsModalData: DataItem | null;
   wishListItems: DataItem[];
+  query: string;
+  setQuery: React.Dispatch<React.SetStateAction<string>>;
   setDetailsModalData: React.Dispatch<React.SetStateAction<DataItem | null>>;
   setWishListItems: React.Dispatch<React.SetStateAction<DataItem[]>>;
   setData: React.Dispatch<React.SetStateAction<DataItem[]>>;

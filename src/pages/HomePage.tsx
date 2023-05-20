@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import axios from "axios";
 import SearchBar from "../components/SearchBar";
-import EventsList from "../components/EventsList";
+import EventsList from "../components/events-list/EventsList";
 import { BlockTitle, StyledLink } from "../components/CommonStyledElements";
 import { useMainContext } from "../context/MainContext";
-import DetailModalComponent from "../components/DetailModalComponent";
+import DetailsModal from "../components/modal/DetailsModal";
 import styled from "styled-components";
 
 const LinksHolder = styled.div`
@@ -50,9 +50,7 @@ export default function HomePage(): JSX.Element {
       </LinksHolder>
       <SearchBar />
       <EventsList />
-      {detailsModalData && (
-        <DetailModalComponent detailData={detailsModalData} />
-      )}
+      {detailsModalData && <DetailsModal detailData={detailsModalData} />}
     </>
   );
 }

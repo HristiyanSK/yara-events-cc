@@ -17,15 +17,20 @@ const StyledInput = styled.input`
 `;
 
 export default function SearchBar(): JSX.Element {
-  // filtereddata = data.filter((dataitem) => dataitem.name.includes(searchedValue))
-  const handleSearchByName = useCallback((e: any) => {}, []);
+  const { setQuery, query } = useMainContext();
+  const handleSearchByName = useCallback(
+    (e: any) => {
+      setQuery(e.target.value);
+    },
+    [setQuery]
+  );
   return (
     <InputHolder>
       <StyledInput
-        // value={searchedValue}
+        value={query}
         type="text"
         placeholder="Search by name..."
-        onClick={handleSearchByName}
+        onChange={handleSearchByName}
       />
     </InputHolder>
   );

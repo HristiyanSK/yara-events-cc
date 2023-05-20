@@ -4,6 +4,7 @@ import WishList from "./pages/WishList";
 import MyCreatedEvents from "./pages/MyCreatedEvents";
 import styled from "styled-components";
 import MainContextProvider from "./context/MainContext";
+import "react-toastify/dist/ReactToastify.css";
 
 const MainHolder = styled.section`
   margin: 40px auto;

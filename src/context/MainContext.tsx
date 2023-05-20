@@ -6,10 +6,12 @@ const MainContext = React.createContext<MyContextType>({
   error: null,
   detailsModalData: null,
   wishListItems: [],
+  query: "",
   setDetailsModalData: () => {},
   setWishListItems: () => {},
   setData: () => {},
   setError: () => {},
+  setQuery: () => {},
 });
 
 export function useMainContext() {
@@ -22,6 +24,7 @@ export default function MainContextProvider({ children }: { children: any }) {
   );
   const [wishListItems, setWishListItems] = useState<DataItem[]>([]);
   const [data, setData] = useState<DataItem[]>([]);
+  const [query, setQuery] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
 
   const value = useMemo(
@@ -30,12 +33,14 @@ export default function MainContextProvider({ children }: { children: any }) {
       error,
       detailsModalData,
       wishListItems,
+      query,
+      setQuery,
       setDetailsModalData,
       setWishListItems,
       setData,
       setError,
     }),
-    [detailsModalData, wishListItems, data, error]
+    [detailsModalData, wishListItems, data, error, query]
   );
 
   return <MainContext.Provider value={value}>{children}</MainContext.Provider>;

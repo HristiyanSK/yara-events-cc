@@ -7,6 +7,13 @@ export const BlockTitle = styled.h1`
   color: #fa832f;
   font-weight: 800;
 `;
+export const BlockSubtitle = styled.h2`
+  margin-bottom: 20px;
+  margin-top: 10px;
+  font-size: 28px;
+  color: #858585;
+  font-weight: 700;
+`;
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
@@ -15,10 +22,9 @@ export const StyledLink = styled(Link)`
   font-weight: 600;
 `;
 
-export const NoItemsText = styled.div`
+export const NoItemsText = styled.div<{ mt?: string }>`
   margin-bottom: 12px;
-  margin-top: 0;
-  margin-top: 22px;
+  margin-top: ${({ mt }) => (mt ? mt : "22px")};
   font-size: 14px;
   font-style: italic;
   color: #83878b;
