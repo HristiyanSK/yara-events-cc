@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useMainContext } from "../../context/MainContext";
-import { ItemHolder, ImageHolder, ListBlock } from "../CommonStyledElements";
+import { ItemHolder, ImageHolder, ListBlock } from "../UI/CommonStyledElements";
 import styled from "styled-components";
 
 const IconButton = styled.div`

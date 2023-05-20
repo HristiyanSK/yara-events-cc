@@ -9,10 +9,10 @@ import {
   StyledLink,
   BlockSubtitle,
   NoItemsText,
-} from "../components/CommonStyledElements";
+} from "../components/UI/CommonStyledElements";
 import { EventItem } from "../types/types";
 
-export default function MyCreatedEvents(): JSX.Element {
+export default function MyEvents(): JSX.Element {
   const [eventList, setEventList] = useState<EventItem[]>([]);
   return (
     <>

@@ -4,7 +4,7 @@ import {
   BlockTitle,
   NoItemsText,
   StyledLink,
-} from "../components/CommonStyledElements";
+} from "../components/UI/CommonStyledElements";
 import List from "../components/events-list/ListComponent";
 import DetailModalComp from "../components/modal/DetailsModal";
 

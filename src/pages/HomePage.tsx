@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import SearchBar from "../components/SearchBar";
 import EventsList from "../components/events-list/EventsList";
-import { BlockTitle, StyledLink } from "../components/CommonStyledElements";
+import { BlockTitle, StyledLink } from "../components/UI/CommonStyledElements";
 import { useMainContext } from "../context/MainContext";
 import DetailsModal from "../components/modal/DetailsModal";
 import styled from "styled-components";

@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import WishList from "./pages/WishList";
-import MyCreatedEvents from "./pages/MyCreatedEvents";
+import MyCreatedEvents from "./pages/MyEvents";
 import styled from "styled-components";
 import MainContextProvider from "./context/MainContext";
 import "react-toastify/dist/ReactToastify.css";

@@ -56,7 +56,7 @@ export const ModalContent = styled.div`
 export const ImageHolder = styled.div`
   width: 100%;
   position: relative;
-  height: 100px;
+  height: 185px;
   border-radius: 8px;
   overflow: hidden;
   background: #f1f1f1;

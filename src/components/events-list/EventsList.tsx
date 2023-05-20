@@ -6,7 +6,7 @@ import {
   ImageHolder,
   ListBlock,
   NoItemsText,
-} from "../CommonStyledElements";
+} from "../UI/CommonStyledElements";
 
 const ErrorBlock = styled.div`
   font-size: 14px;
