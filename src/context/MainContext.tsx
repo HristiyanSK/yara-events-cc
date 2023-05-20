@@ -1,17 +1,5 @@
 import React, { useContext, useMemo, useState } from "react";
-
-type DataItem = {};
-
-interface MyContextType {
-  data: DataItem[] | null;
-  error: string | null;
-  detailsModalData: DataItem | null;
-  wishListItems: DataItem[];
-  setDetailsModalData: React.Dispatch<React.SetStateAction<DataItem | null>>;
-  setWishListItems: React.Dispatch<React.SetStateAction<DataItem[]>>;
-  setData: React.Dispatch<React.SetStateAction<DataItem[]>>;
-  setError: React.Dispatch<React.SetStateAction<string | null>>;
-}
+import { DataItem, MyContextType } from "../types/types";
 
 const MainContext = React.createContext<MyContextType>({
   data: [],
@@ -38,13 +26,13 @@ export default function MainContextProvider({ children }: { children: any }) {
 
   const value = useMemo(
     () => ({
+      data,
+      error,
       detailsModalData,
+      wishListItems,
       setDetailsModalData,
       setWishListItems,
-      wishListItems,
-      data,
       setData,
-      error,
       setError,
     }),
     [detailsModalData, wishListItems, data, error]

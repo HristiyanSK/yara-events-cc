@@ -15,7 +15,7 @@ const LinksHolder = styled.div`
 `;
 
 export default function HomePage(): JSX.Element {
-  const { detailsModalData, setData, data, setError } = useMainContext();
+  const { detailsModalData, setData, setError } = useMainContext();
 
   useEffect(() => {
     const fetchData = async (): Promise<void> => {
@@ -39,7 +39,7 @@ export default function HomePage(): JSX.Element {
     fetchData();
   }, [setData, setError]);
 
-  console.log("data", data);
+  // console.log("data", data);
 
   return (
     <>

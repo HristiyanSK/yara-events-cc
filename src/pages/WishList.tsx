@@ -20,7 +20,7 @@ function List({ items }: any) {
   const { setDetailsModalData, setWishListItems } = useMainContext();
   const handleRemoveFromFavs = useCallback(
     (id: string) => {
-      setWishListItems((witems) =>
+      setWishListItems((witems: any) =>
         witems.filter((item: any) => item.id !== id)
       );
     },

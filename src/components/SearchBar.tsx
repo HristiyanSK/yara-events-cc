@@ -1,4 +1,6 @@
-import { styled } from "styled-components";
+import { useCallback } from "react";
+import styled from "styled-components";
+import { useMainContext } from "../context/MainContext";
 
 const InputHolder = styled.div`
   width: 100%;
@@ -15,9 +17,16 @@ const StyledInput = styled.input`
 `;
 
 export default function SearchBar(): JSX.Element {
+  // filtereddata = data.filter((dataitem) => dataitem.name.includes(searchedValue))
+  const handleSearchByName = useCallback((e: any) => {}, []);
   return (
     <InputHolder>
-      <StyledInput type="text" placeholder="Search by name..." />
+      <StyledInput
+        // value={searchedValue}
+        type="text"
+        placeholder="Search by name..."
+        onClick={handleSearchByName}
+      />
     </InputHolder>
   );
 }

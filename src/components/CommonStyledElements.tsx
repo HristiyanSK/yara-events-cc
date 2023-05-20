@@ -41,17 +41,17 @@ export const ItemHolder = styled.div`
   background: #fff;
   border-radius: 8px;
   box-shadow: 0px 5px 30px 5px rgba(0, 0, 0, 0.1);
+  p {
+    margin: 0;
+    font-size: 14px;
+    color: #797878;
+  }
   p:nth-child(1) {
     margin-top: 0;
     margin-bottom: 8px;
     font-size: 14px;
     font-weight: bold;
     color: #4d4d4d;
-  }
-  p:nth-child(2) {
-    margin: 0;
-    font-size: 14px;
-    color: #797878;
   }
 `;
 
