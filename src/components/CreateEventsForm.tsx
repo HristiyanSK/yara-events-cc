@@ -118,7 +118,8 @@ const CreateEventForm: React.FC<CreateEventFormProps> = ({ setEventList }) => {
                 id={`event-${name}`}
                 name={name}
                 required
-                // value={eventData[name as keyof EventData]}
+                // type assertion here to explicitly treat value as string
+                value={eventData[name as keyof EventData] as string}
                 onChange={handleInputChange}
               />
             )}

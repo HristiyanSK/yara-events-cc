@@ -34,7 +34,7 @@ export default function EventsList(): JSX.Element | null {
   }
   return (
     <ListBlock>
-      {filteredResults.map((item: any) => {
+      {filteredResults.map((item: DataItem) => {
         return (
           <ItemHolder key={item.id} onClick={() => setDetailsModalData(item)}>
             <ImageHolder>

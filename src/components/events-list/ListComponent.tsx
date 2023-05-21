@@ -28,15 +28,15 @@ export default function List({ items }: { items: DataItem[] }): JSX.Element {
   const { setDetailsModalData, setWishListItems } = useMainContext();
   const handleRemoveFromFavs = useCallback(
     (id: string) => {
-      setWishListItems((witems: any) =>
-        witems.filter((item: any) => item.id !== id)
+      setWishListItems((witems: DataItem[]) =>
+        witems.filter((item: DataItem) => item.id !== id)
       );
     },
     [setWishListItems]
   );
   return (
     <ListBlock>
-      {items.map((item: any) => {
+      {items.map((item: DataItem) => {
         return (
           <ItemHolder
             key={item.id}
