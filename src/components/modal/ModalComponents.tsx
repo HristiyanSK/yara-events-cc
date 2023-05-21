@@ -38,9 +38,6 @@ export const ModalHeader = styled.div`
     align-items: center;
     border-radius: 100px;
     border: none;
-    > :hover {
-      background: #eaeaea;
-    }
     span {
       transform: rotate(45deg);
       opacity: 0.8;

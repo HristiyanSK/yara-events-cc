@@ -1,3 +1,4 @@
+import { useCallback, useState } from "react";
 import { useMainContext } from "../../context/MainContext";
 import { toast, ToastContainer } from "react-toastify";
 import {
@@ -17,8 +18,38 @@ export default function DetailModalComp({
 }: {
   detailData: any;
 }): JSX.Element | null {
+  const [ticketCount, setTicketCount] = useState(0);
   const { setDetailsModalData, setWishListItems, wishListItems } =
     useMainContext();
+
+  const handleAddWishList = useCallback(() => {
+    if (ticketCount && ticketCount > 0) {
+      const foundIndex = wishListItems.findIndex(
+        (item: any) => item.id === detailData.id
+      );
+      if (foundIndex !== -1) {
+        toast.error("Event already added to the list!", {
+          position: toast.POSITION.BOTTOM_CENTER,
+        });
+      } else {
+        setWishListItems([
+          ...wishListItems,
+          { ...detailData, ticketCount: ticketCount },
+        ]);
+        toast.success(
+          "Successfully added to wish list! Please check the wish list!",
+          {
+            position: toast.POSITION.BOTTOM_CENTER,
+          }
+        );
+      }
+    } else {
+      toast.error("Please select number of tickets first!", {
+        position: toast.POSITION.BOTTOM_CENTER,
+      });
+    }
+  }, [detailData, setWishListItems, ticketCount, wishListItems]);
+
   if (!detailData) {
     return null;
   }
@@ -39,19 +70,14 @@ export default function DetailModalComp({
           <ContentBlock>
             <EventDetails detailData={detailData} />
             <div>
-              <NumberInput placeholder="Ticket count" type="number" />
-              <AddWishListButton
-                type="button"
-                onClick={() => {
-                  setWishListItems([...wishListItems, detailData]);
-                  toast.success(
-                    "Successfully added to wish list! Please check the wish list!",
-                    {
-                      position: toast.POSITION.BOTTOM_CENTER,
-                    }
-                  );
-                }}
-              >
+              <NumberInput
+                value={ticketCount}
+                min={0}
+                onChange={(e) => setTicketCount(parseInt(e.target.value))}
+                placeholder="Ticket count"
+                type="number"
+              />
+              <AddWishListButton type="button" onClick={handleAddWishList}>
                 ♥ Add to wish list
               </AddWishListButton>
             </div>
