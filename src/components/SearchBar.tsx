@@ -18,6 +18,8 @@ const StyledInput = styled.input`
 
 export default function SearchBar(): JSX.Element {
   const { setQuery, query } = useMainContext();
+
+  // Handle search in the input
   const handleSearchByName: React.ChangeEventHandler<HTMLInputElement> =
     useCallback(
       (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,6 +27,7 @@ export default function SearchBar(): JSX.Element {
       },
       [setQuery]
     );
+
   return (
     <InputHolder>
       <StyledInput

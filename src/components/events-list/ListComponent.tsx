@@ -1,16 +1,14 @@
 import { useCallback } from "react";
 import { useMainContext } from "../../context/MainContext";
-import { ItemHolder, ImageHolder, ListBlock } from "../UI/CommonStyledElements";
+import {
+  ItemHolder,
+  ImageHolder,
+  ListBlock,
+  IconButton,
+} from "../UI/CommonStyledElements";
 import styled from "styled-components";
 import { DataItem } from "../../types/types";
 
-const IconButton = styled.div`
-  color: #fc6d6d;
-  font-size: 32px;
-  &:hover {
-    color: #cd5050;
-  }
-`;
 const TicketHintBlock = styled.div`
   font-size: 14px;
   font-weight: 700;

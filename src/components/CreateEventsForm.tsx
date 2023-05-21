@@ -88,7 +88,7 @@ const CreateEventForm: React.FC<CreateEventFormProps> = ({ setEventList }) => {
 
   const formFields = [
     { name: "name", label: "Event name", type: "text" },
-    { name: "date", label: "Event date", type: "text" },
+    { name: "date", label: "Event date", type: "date" },
     { name: "location", label: "Event location", type: "text" },
     { name: "ticket", label: "Ticket price", type: "text" },
     {

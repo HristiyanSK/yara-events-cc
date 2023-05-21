@@ -79,3 +79,11 @@ export const ImageHolder = styled.div`
     margin: auto auto;
   }
 `;
+
+export const IconButton = styled.div`
+  color: #fc6d6d;
+  font-size: 32px;
+  &:hover {
+    color: #cd5050;
+  }
+`;

@@ -48,7 +48,9 @@ export default function HomePage(): JSX.Element {
       </LinksHolder>
       <SearchBar />
       <EventsList />
-      {detailsModalData && <DetailsModal detailData={detailsModalData} />}
+      {detailsModalData && (
+        <DetailsModal detailData={detailsModalData} showTicketBlock />
+      )}
     </>
   );
 }

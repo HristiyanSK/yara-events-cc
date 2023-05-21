@@ -9,11 +9,26 @@ import {
   StyledLink,
   BlockSubtitle,
   NoItemsText,
+  IconButton,
 } from "../components/UI/CommonStyledElements";
 import { EventItem } from "../types/types";
+import { styled } from "styled-components";
+
+const FlexWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-right: 10px;
+`;
 
 export default function MyEvents(): JSX.Element {
   const [eventList, setEventList] = useState<EventItem[]>([]);
+
+  // Delete from list function
+  const handleDelete = (id: string) => {
+    setEventList((prevstate) => prevstate.filter((item) => item.id !== id));
+  };
 
   return (
     <>
@@ -31,12 +46,20 @@ export default function MyEvents(): JSX.Element {
                   <img src={URL.createObjectURL(picture)} alt="Event Preview" />
                 )}
               </ImageHolder>
-              <div>
-                <p>Name: {name}</p>
-                <p>Date: {date}</p>
-                <p>Location: {location}</p>
-                <p>Ticket price: {ticket}</p>
-              </div>
+              <FlexWrapper>
+                <div>
+                  <p>Name: {name}</p>
+                  <p>Date: {date}</p>
+                  <p>Location: {location}</p>
+                  <p>Ticket price: {ticket}</p>
+                </div>
+                <IconButton
+                  onClick={() => handleDelete(id)}
+                  style={{ fontWeight: "bolder" }}
+                >
+                  ×
+                </IconButton>
+              </FlexWrapper>
             </ItemHolder>
           ))
         ) : (

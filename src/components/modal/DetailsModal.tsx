@@ -16,8 +16,10 @@ import {
 
 export default function DetailModalComp({
   detailData,
+  showTicketBlock,
 }: {
   detailData: DataItem;
+  showTicketBlock?: boolean;
 }): JSX.Element | null {
   const [ticketCount, setTicketCount] = useState(0);
   const { setDetailsModalData, setWishListItems, wishListItems } =
@@ -70,18 +72,20 @@ export default function DetailModalComp({
           </ImageHolder>
           <ContentBlock>
             <EventDetails detailData={detailData} />
-            <div>
-              <NumberInput
-                value={ticketCount}
-                min={0}
-                onChange={(e) => setTicketCount(parseInt(e.target.value))}
-                placeholder="Ticket count"
-                type="number"
-              />
-              <AddWishListButton type="button" onClick={handleAddWishList}>
-                ♥ Add to wish list
-              </AddWishListButton>
-            </div>
+            {showTicketBlock && (
+              <div>
+                <NumberInput
+                  value={ticketCount}
+                  min={0}
+                  onChange={(e) => setTicketCount(parseInt(e.target.value))}
+                  placeholder="Ticket count"
+                  type="number"
+                />
+                <AddWishListButton type="button" onClick={handleAddWishList}>
+                  ♥ Add to wish list
+                </AddWishListButton>
+              </div>
+            )}
           </ContentBlock>
         </ModalContent>
         <ToastContainer />
