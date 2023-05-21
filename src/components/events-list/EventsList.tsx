@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import styled from "styled-components";
 import { useMainContext } from "../../context/MainContext";
+import { DataItem } from "../../types/types";
 import {
   ItemHolder,
   ImageHolder,
@@ -17,8 +18,8 @@ const ErrorBlock = styled.div`
 export default function EventsList(): JSX.Element | null {
   const { data, error, query, setDetailsModalData } = useMainContext();
   const filteredResults = useMemo(() => {
-    return data?.filter((i: any) =>
-      i.name.toLowerCase().includes(query.toLowerCase())
+    return data?.filter((item: DataItem) =>
+      item.name.toLowerCase().includes(query.toLowerCase())
     );
   }, [data, query]);
 

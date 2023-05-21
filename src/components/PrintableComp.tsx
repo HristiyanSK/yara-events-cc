@@ -1,4 +1,5 @@
 import { Page, Text, Document, StyleSheet } from "@react-pdf/renderer";
+import { DataItem } from "../types/types";
 
 const styles = StyleSheet.create({
   container: {
@@ -6,11 +7,11 @@ const styles = StyleSheet.create({
   },
 });
 
-const PrintableList = ({ items }: { items: any }) => {
+const PrintableList = ({ items }: { items: DataItem[] }) => {
   return (
     <Document>
       <Page style={styles.container}>
-        {items.map((item: any) => (
+        {items.map((item: DataItem) => (
           <Text key={item.id}>
             Name: {item.name} - {item.summary} Date: {item.start_date}
             {item.start_time} Location:{" "}

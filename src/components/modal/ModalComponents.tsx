@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { DataItem } from "../../types/types";
 
 export const ModalHolder = styled.div`
   position: fixed;
@@ -95,7 +96,7 @@ export const NumberInput = styled.input`
   border: 1px solid #9a9a9a;
 `;
 
-export const EventDetails = ({ detailData }: any) => {
+export const EventDetails = ({ detailData }: { detailData: DataItem }) => {
   return (
     <>
       <p>

@@ -39,8 +39,6 @@ export default function HomePage(): JSX.Element {
     fetchData();
   }, [setData, setError]);
 
-  // console.log("data", data);
-
   return (
     <>
       <BlockTitle>Events list</BlockTitle>

@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
 import { useMainContext } from "../../context/MainContext";
 import { toast, ToastContainer } from "react-toastify";
+import { DataItem } from "../../types/types";
 import {
   EventDetails,
   ModalHolder,
@@ -16,7 +17,7 @@ import {
 export default function DetailModalComp({
   detailData,
 }: {
-  detailData: any;
+  detailData: DataItem;
 }): JSX.Element | null {
   const [ticketCount, setTicketCount] = useState(0);
   const { setDetailsModalData, setWishListItems, wishListItems } =
@@ -25,7 +26,7 @@ export default function DetailModalComp({
   const handleAddWishList = useCallback(() => {
     if (ticketCount && ticketCount > 0) {
       const foundIndex = wishListItems.findIndex(
-        (item: any) => item.id === detailData.id
+        (item: DataItem) => item.id === detailData.id
       );
       if (foundIndex !== -1) {
         toast.error("Event already added to the list!", {

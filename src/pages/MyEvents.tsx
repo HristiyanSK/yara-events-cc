@@ -14,6 +14,7 @@ import { EventItem } from "../types/types";
 
 export default function MyEvents(): JSX.Element {
   const [eventList, setEventList] = useState<EventItem[]>([]);
+  console.log("eventList", eventList);
   return (
     <>
       <BlockTitle>My Created Events</BlockTitle>

@@ -10,7 +10,27 @@ export interface EventItem extends EventData {
   id: string;
 }
 
-export type DataItem = {};
+export type DataItem = {
+  name: string;
+  id: string;
+  start_time: string;
+  start_date: string;
+  primary_venue: {
+    address: {
+      localized_area_display: string;
+    };
+  };
+  ticketCount: number;
+  summary: string;
+  ticket_availability: {
+    maximum_ticket_price: {
+      display: string;
+    };
+  };
+  image: {
+    url: string;
+  };
+};
 
 export interface MyContextType {
   data: DataItem[] | null;

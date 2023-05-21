@@ -2,6 +2,7 @@ import { useCallback } from "react";
 import { useMainContext } from "../../context/MainContext";
 import { ItemHolder, ImageHolder, ListBlock } from "../UI/CommonStyledElements";
 import styled from "styled-components";
+import { DataItem } from "../../types/types";
 
 const IconButton = styled.div`
   color: #fc6d6d;
@@ -23,7 +24,7 @@ const FlexJustified = styled.div`
   justify-content: space-between;
   gap: 12px;
 `;
-export default function List({ items }: any): JSX.Element {
+export default function List({ items }: { items: DataItem[] }): JSX.Element {
   const { setDetailsModalData, setWishListItems } = useMainContext();
   const handleRemoveFromFavs = useCallback(
     (id: string) => {
