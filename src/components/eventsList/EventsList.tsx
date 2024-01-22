@@ -7,7 +7,7 @@ import {
   ImageHolder,
   ListBlock,
   NoItemsText,
-} from "../UI/CommonStyledElements";
+} from "../ui_elements/CommonStyledElements";
 
 const ErrorBlock = styled.div`
   font-size: 14px;
@@ -16,7 +16,11 @@ const ErrorBlock = styled.div`
 `;
 
 export default function EventsList(): JSX.Element | null {
+  // Importing and exporting
+  // Let's look at the JSX syntax? JSX.Element or null is returned here. Why?
+  // Map key?
   const { data, error, query, setDetailsModalData } = useMainContext();
+
   const filteredResults = useMemo(() => {
     return data?.filter((item: DataItem) =>
       item.name.toLowerCase().includes(query.toLowerCase())
@@ -36,7 +40,7 @@ export default function EventsList(): JSX.Element | null {
     <ListBlock>
       {filteredResults.map((item: DataItem) => {
         return (
-          <ItemHolder key={item.id} onClick={() => setDetailsModalData(item)}>
+          <ItemHolder onClick={() => setDetailsModalData(item)}>
             <ImageHolder>
               <img src={item.image.url} alt="item_img" />
             </ImageHolder>

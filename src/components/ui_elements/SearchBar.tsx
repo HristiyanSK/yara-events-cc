@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import styled from "styled-components";
-import { useMainContext } from "../context/MainContext";
+import { useMainContext } from "../../context/MainContext";
 
 const InputHolder = styled.div`
   width: 100%;
@@ -19,7 +19,6 @@ const StyledInput = styled.input`
 export default function SearchBar(): JSX.Element {
   const { setQuery, query } = useMainContext();
 
-  // Handle search in the input
   const handleSearchByName: React.ChangeEventHandler<HTMLInputElement> =
     useCallback(
       (e: React.ChangeEvent<HTMLInputElement>) => {

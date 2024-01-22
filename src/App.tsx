@@ -15,10 +15,17 @@ const MainHolder = styled.section`
   flex-flow: column nowrap;
 `;
 
+// const GlobalStyle = createGlobalStyle`
+
+// `;
+
 function App() {
+  // Show import/export
+  // Show global style from styled componenents
   return (
     <BrowserRouter>
       <MainContextProvider>
+        {/* <GlobalStyle /> */}
         <MainHolder>
           <Routes>
             <Route path="/" element={<HomePage />} />

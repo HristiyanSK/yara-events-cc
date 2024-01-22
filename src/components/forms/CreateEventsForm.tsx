@@ -1,7 +1,7 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import styled from "styled-components";
-import { EventItem, EventData } from "../types/types";
+import { EventItem, EventData } from "../../types/types";
 
 const Form = styled.form`
   display: flex;
@@ -56,12 +56,12 @@ const CreateEventForm: React.FC<CreateEventFormProps> = ({ setEventList }) => {
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setEventData((prevData) => ({ ...prevData, [name]: value }));
+    setEventData((prevData: any) => ({ ...prevData, [name]: value }));
   };
 
   const handlePictureChange = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files && e.target?.files[0];
-    setEventData((prevData) => ({ ...prevData, picture: file || null }));
+    setEventData((prevData: any) => ({ ...prevData, picture: file || null }));
   };
 
   const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -86,6 +86,7 @@ const CreateEventForm: React.FC<CreateEventFormProps> = ({ setEventList }) => {
     });
   };
 
+  // Why is this "formFields" array here?
   const formFields = [
     { name: "name", label: "Event name", type: "text" },
     { name: "date", label: "Event date", type: "date" },

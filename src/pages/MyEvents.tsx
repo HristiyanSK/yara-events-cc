@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import CreateEventForm from "../components/CreateEventsForm";
+import CreateEventForm from "../components/forms/CreateEventsForm";
 import {
   ItemHolder,
   ImageHolder,
@@ -10,7 +10,7 @@ import {
   BlockSubtitle,
   NoItemsText,
   IconButton,
-} from "../components/UI/CommonStyledElements";
+} from "../components/ui_elements/CommonStyledElements";
 import { EventItem } from "../types/types";
 import { styled } from "styled-components";
 

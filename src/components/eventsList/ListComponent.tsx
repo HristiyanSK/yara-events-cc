@@ -5,7 +5,7 @@ import {
   ImageHolder,
   ListBlock,
   IconButton,
-} from "../UI/CommonStyledElements";
+} from "../ui_elements/CommonStyledElements";
 import styled from "styled-components";
 import { DataItem } from "../../types/types";
 
@@ -22,8 +22,11 @@ const FlexJustified = styled.div`
   justify-content: space-between;
   gap: 12px;
 `;
+
 export default function List({ items }: { items: DataItem[] }): JSX.Element {
   const { setDetailsModalData, setWishListItems } = useMainContext();
+
+  // Can we remove the useCallback hook here? Why? Can we set the state direclty(invoke it on onClick)
   const handleRemoveFromFavs = useCallback(
     (id: string) => {
       setWishListItems((witems: DataItem[]) =>
@@ -32,6 +35,10 @@ export default function List({ items }: { items: DataItem[] }): JSX.Element {
     },
     [setWishListItems]
   );
+
+  // Can we do some separations here? Moduling?
+  // What "hoisting" is?
+  // Props forwarding? Props to styled component
   return (
     <ListBlock>
       {items.map((item: DataItem) => {
@@ -47,6 +54,7 @@ export default function List({ items }: { items: DataItem[] }): JSX.Element {
               <IconButton
                 onClick={(e) => {
                   handleRemoveFromFavs(item.id);
+                  // click event is stopped on the current element
                   e.stopPropagation();
                 }}
               >

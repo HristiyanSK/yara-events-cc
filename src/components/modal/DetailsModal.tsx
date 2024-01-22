@@ -21,6 +21,8 @@ export default function DetailModalComp({
   detailData: DataItem;
   showTicketBlock?: boolean;
 }): JSX.Element | null {
+  // Custom hook
+  // h2 to styled component
   const [ticketCount, setTicketCount] = useState(0);
   const { setDetailsModalData, setWishListItems, wishListItems } =
     useMainContext();

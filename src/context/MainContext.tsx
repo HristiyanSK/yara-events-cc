@@ -1,7 +1,7 @@
 import React, { useContext, useMemo, useState } from "react";
-import { DataItem, MyContextType } from "../types/types";
+import { DataItem, MainContextType } from "../types/types";
 
-const MainContext = React.createContext<MyContextType>({
+const MainContext = React.createContext<MainContextType>({
   data: [],
   error: null,
   detailsModalData: null,

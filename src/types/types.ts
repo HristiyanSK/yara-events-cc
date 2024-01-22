@@ -32,7 +32,7 @@ export type DataItem = {
   };
 };
 
-export interface MyContextType {
+export interface MainContextType {
   data: DataItem[] | null;
   error: string | null;
   detailsModalData: DataItem | null;

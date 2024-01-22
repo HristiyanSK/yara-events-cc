@@ -1,8 +1,11 @@
 import { useEffect } from "react";
 import axios from "axios";
-import SearchBar from "../components/SearchBar";
-import EventsList from "../components/events-list/EventsList";
-import { BlockTitle, StyledLink } from "../components/UI/CommonStyledElements";
+import SearchBar from "../components/ui_elements/SearchBar";
+import EventsList from "../components/eventsList/EventsList";
+import {
+  BlockTitle,
+  StyledLink,
+} from "../components/ui_elements/CommonStyledElements";
 import { useMainContext } from "../context/MainContext";
 import DetailsModal from "../components/modal/DetailsModal";
 import styled from "styled-components";
@@ -15,7 +18,10 @@ const LinksHolder = styled.div`
 `;
 
 export default function HomePage(): JSX.Element {
+  // Show state change and reconcilation
+  // Show HOC using the StyledLink
   const { detailsModalData, setData, setError } = useMainContext();
+  // const [buttonColorBlue, setButtonColorBlue] = useState(false);
 
   useEffect(() => {
     const fetchData = async (): Promise<void> => {
@@ -37,7 +43,8 @@ export default function HomePage(): JSX.Element {
       }
     };
     fetchData();
-  }, [setData, setError]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
