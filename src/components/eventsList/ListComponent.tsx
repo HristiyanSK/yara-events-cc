@@ -23,10 +23,22 @@ const FlexJustified = styled.div`
   gap: 12px;
 `;
 
+const ItemContent = (props: any) => {
+  const { item } = props;
+  return (
+    <div>
+      <p>{item.name}</p>
+      <p>
+        {item.start_date} {item.start_time}
+      </p>
+      <p>{item.primary_venue.address.localized_area_display}</p>
+    </div>
+  );
+};
+
 export default function List({ items }: { items: DataItem[] }): JSX.Element {
   const { setDetailsModalData, setWishListItems } = useMainContext();
 
-  // Can we remove the useCallback hook here? Why? Can we set the state direclty(invoke it on onClick)
   const handleRemoveFromFavs = useCallback(
     (id: string) => {
       setWishListItems((witems: DataItem[]) =>
@@ -36,9 +48,6 @@ export default function List({ items }: { items: DataItem[] }): JSX.Element {
     [setWishListItems]
   );
 
-  // Can we do some separations here? Moduling?
-  // What "hoisting" is?
-  // Props forwarding? Props to styled component
   return (
     <ListBlock>
       {items.map((item: DataItem) => {
@@ -63,13 +72,7 @@ export default function List({ items }: { items: DataItem[] }): JSX.Element {
               <ImageHolder>
                 <img src={item.image.url} alt="item_img" />
               </ImageHolder>
-              <div>
-                <p>{item.name}</p>
-                <p>
-                  {item.start_date} {item.start_time}
-                </p>
-                <p>{item.primary_venue.address.localized_area_display}</p>
-              </div>
+              <ItemContent item={item} />
             </FlexJustified>
             <TicketHintBlock>
               {item.ticketCount} ×{" "}

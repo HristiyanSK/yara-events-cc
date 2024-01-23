@@ -25,7 +25,6 @@ const FlexWrapper = styled.div`
 export default function MyEvents(): JSX.Element {
   const [eventList, setEventList] = useState<EventItem[]>([]);
 
-  // Delete from list function
   const handleDelete = (id: string) => {
     setEventList((prevstate) => prevstate.filter((item) => item.id !== id));
   };

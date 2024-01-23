@@ -58,7 +58,6 @@ export default function DetailModalComp({
   if (!detailData) {
     return null;
   }
-
   return (
     <ModalHolder>
       <Wrapper>

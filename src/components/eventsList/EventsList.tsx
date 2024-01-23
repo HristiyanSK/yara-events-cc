@@ -1,5 +1,4 @@
 import { useMemo } from "react";
-import styled from "styled-components";
 import { useMainContext } from "../../context/MainContext";
 import { DataItem } from "../../types/types";
 import {
@@ -8,6 +7,7 @@ import {
   ListBlock,
   NoItemsText,
 } from "../ui_elements/CommonStyledElements";
+import styled from "styled-components";
 
 const ErrorBlock = styled.div`
   font-size: 14px;
@@ -16,9 +16,6 @@ const ErrorBlock = styled.div`
 `;
 
 export default function EventsList(): JSX.Element | null {
-  // Importing and exporting
-  // Let's look at the JSX syntax? JSX.Element or null is returned here. Why?
-  // Map key?
   const { data, error, query, setDetailsModalData } = useMainContext();
 
   const filteredResults = useMemo(() => {
@@ -38,9 +35,9 @@ export default function EventsList(): JSX.Element | null {
   }
   return (
     <ListBlock>
-      {filteredResults.map((item: DataItem) => {
+      {filteredResults.map((item: DataItem, key) => {
         return (
-          <ItemHolder onClick={() => setDetailsModalData(item)}>
+          <ItemHolder key={key} onClick={() => setDetailsModalData(item)}>
             <ImageHolder>
               <img src={item.image.url} alt="item_img" />
             </ImageHolder>

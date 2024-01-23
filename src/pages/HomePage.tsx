@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import SearchBar from "../components/ui_elements/SearchBar";
 import EventsList from "../components/eventsList/EventsList";
@@ -17,11 +17,13 @@ const LinksHolder = styled.div`
   margin-bottom: 12px;
 `;
 
+const TestTitle = styled(BlockTitle)`
+  background: lightblue;
+`;
+
 export default function HomePage(): JSX.Element {
-  // Show state change and reconcilation
-  // Show HOC using the StyledLink
   const { detailsModalData, setData, setError } = useMainContext();
-  // const [buttonColorBlue, setButtonColorBlue] = useState(false);
+  const [buttonColorBlue, setButtonColorBlue] = useState<boolean>();
 
   useEffect(() => {
     const fetchData = async (): Promise<void> => {
@@ -48,7 +50,15 @@ export default function HomePage(): JSX.Element {
 
   return (
     <>
+      <TestTitle>Events list</TestTitle>
       <BlockTitle>Events list</BlockTitle>
+      <button
+        onClick={() => setButtonColorBlue(!buttonColorBlue)}
+        type="button"
+        style={{ background: buttonColorBlue ? "blue" : "" }}
+      >
+        Button text
+      </button>
       <LinksHolder>
         <StyledLink to="/my_created_events">To created events ›</StyledLink>
         <StyledLink to="/wish_list">To wish list ›</StyledLink>

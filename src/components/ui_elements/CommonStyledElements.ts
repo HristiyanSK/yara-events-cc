@@ -7,6 +7,7 @@ export const BlockTitle = styled.h1`
   color: #fa832f;
   font-weight: 800;
 `;
+
 export const BlockSubtitle = styled.h2`
   margin-bottom: 20px;
   margin-top: 10px;

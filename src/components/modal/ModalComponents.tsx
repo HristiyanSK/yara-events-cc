@@ -114,7 +114,8 @@ export const EventDetails = ({ detailData }: { detailData: DataItem }) => {
       </p>
       <p>
         <b>Ticket price: </b>
-        {detailData.ticket_availability.maximum_ticket_price.display}
+        {detailData.ticket_availability.maximum_ticket_price?.display ||
+          "No price available"}
       </p>
     </>
   );

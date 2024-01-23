@@ -86,7 +86,6 @@ const CreateEventForm: React.FC<CreateEventFormProps> = ({ setEventList }) => {
     });
   };
 
-  // Why is this "formFields" array here?
   const formFields = [
     { name: "name", label: "Event name", type: "text" },
     { name: "date", label: "Event date", type: "date" },
